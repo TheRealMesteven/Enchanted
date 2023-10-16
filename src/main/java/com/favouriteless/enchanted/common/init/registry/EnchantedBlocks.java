@@ -41,21 +41,25 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.function.ToIntFunction;
 
 public class EnchantedBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Enchanted.MOD_ID);
+    public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, Enchanted.MOD_ID);
 
     public static void initRender() {
         ItemBlockRenderTypes.setRenderLayer(EnchantedBlocks.CHALK_GOLD.get(), RenderType.cutout());
@@ -76,6 +80,13 @@ public class EnchantedBlocks {
         ItemBlockRenderTypes.setRenderLayer(EnchantedBlocks.GARLIC.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(EnchantedBlocks.SNOWBELL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(EnchantedBlocks.BLOOD_POPPY.get(), RenderType.cutout());
+    }
+    public static void setupPOIs() {
+        try {
+            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, WICKER_BUNDLE_POI.get());
+        } catch (InvocationTargetException | IllegalAccessException exception) {
+            exception.printStackTrace();
+        }
     }
 
     public static final RegistryObject<Block> ALTAR = BLOCKS.register("altar", () -> new AltarBlock(Properties.of(EnchantedMaterials.ALTAR).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
@@ -136,6 +147,7 @@ public class EnchantedBlocks {
     public static final RegistryObject<Block> PROTECTION_BARRIER = BLOCKS.register("protection_barrier", () -> new ProtectionBarrierBlock(Properties.copy(Blocks.BARRIER)));
     public static final RegistryObject<Block> PROTECTION_BARRIER_TEMPORARY = BLOCKS.register("protection_barrier_temporary", () -> new TemporaryProtectionBarrierBlock(Properties.copy(Blocks.BARRIER)));
 
+    public static final RegistryObject<PoiType> WICKER_BUNDLE_POI = POI_TYPES.register("wicker_bundle_poi", () -> new PoiType("wicker_bundle_poi", PoiType.getBlockStates(EnchantedBlocks.WICKER_BUNDLE.get()), 1, 1));
     //public static final RegistryObject<Block> DEMON_HEART = BLOCKS.register("demon_heart", DemonHeart::new);
 
     //-------------------------------------------------------- UTILITY FUNCTIONS FOR CREATING BLOCKS --------------------------------------------------------

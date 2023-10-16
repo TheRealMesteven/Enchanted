@@ -26,16 +26,22 @@ package com.favouriteless.enchanted.common.init.registry;
 
 import com.favouriteless.enchanted.Enchanted;
 import com.favouriteless.enchanted.common.entities.*;
+import com.google.common.collect.ImmutableSet;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityType.Builder;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import static com.favouriteless.enchanted.common.init.registry.EnchantedBlocks.WICKER_BUNDLE_POI;
+
 public class EnchantedEntityTypes {
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, Enchanted.MOD_ID);
+    public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.PROFESSIONS, Enchanted.MOD_ID);
 
     public static final RegistryObject<EntityType<Mandrake>> MANDRAKE = ENTITY_TYPES.register("mandrake", () -> Builder.of(Mandrake::new, MobCategory.MONSTER)
             .sized(0.4F, 0.7F).build(Enchanted.location("mandrake").toString()));
@@ -52,4 +58,5 @@ public class EnchantedEntityTypes {
     public static final RegistryObject<EntityType<FamiliarCat>> FAMILIAR_CAT = ENTITY_TYPES.register("familiar_cat", () -> Builder.of(FamiliarCat::new, MobCategory.CREATURE)
             .sized(0.6F, 0.7F).clientTrackingRange(8).build(Enchanted.location("familiar_cat").toString()));
 
+    public static final RegistryObject<VillagerProfession> APOTHECARY = VILLAGER_PROFESSIONS.register("apothecary", () -> new VillagerProfession("apothecary", WICKER_BUNDLE_POI.get(),  ImmutableSet.of(), ImmutableSet.of(), SoundEvents.CROP_PLANTED));
 }

@@ -183,5 +183,7 @@
     "key.enchanted.broom_aim_down": "下一目标(扫帚)",
 
     "jei.enchanted.chalice_filled": "用红石汤右击圣餐杯",
-    "jei.enchanted.chalice_filled_milk": "用一桶牛奶右击圣餐杯"
+    "jei.enchanted.chalice_filled_milk": "用一桶牛奶右击圣餐杯",
+
+    "entity.enchanted.apothecary": "Apothecary"
 }

@@ -54,6 +54,9 @@ public class CommonSetupEvents {
         EnchantedJEITextures.registerBlockSuffix(EnchantedBlocks.CHALK_PURPLE.get(), "purple");
 
         EnchantedItems.registerCompostables();
+        event.enqueueWork(() -> {
+            EnchantedBlocks.setupPOIs();
+        });
     }
 
     @SubscribeEvent

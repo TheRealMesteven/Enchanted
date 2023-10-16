@@ -191,5 +191,7 @@
     "jei.enchanted.mutandis_extremis": "Mutandis Extremis",
     "jei.enchanted.mutandis.description": "Use mutandis to transmute plants",
     "container.enchanted.kettle": "Kettle",
-    "container.witch_cauldron": "Witch Cauldron"
+    "container.witch_cauldron": "Witch Cauldron",
+
+    "entity.enchanted.apothecary": "Apothecary"
 }

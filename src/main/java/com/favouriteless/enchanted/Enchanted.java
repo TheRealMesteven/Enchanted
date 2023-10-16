@@ -66,7 +66,9 @@ public class Enchanted {
         EnchantedEffects.EFFECTS.register(modEventBus);
         EnchantedParticles.PARTICLE_TYPES.register(modEventBus);
         EnchantedEntityTypes.ENTITY_TYPES.register(modEventBus);
+        EnchantedEntityTypes.VILLAGER_PROFESSIONS.register(modEventBus);
         EnchantedBlocks.BLOCKS.register(modEventBus);
+        EnchantedBlocks.POI_TYPES.register(modEventBus);
         EnchantedItems.ITEMS.register(modEventBus);
         EnchantedBlockEntityTypes.BLOCK_ENTITY_TYPES.register(modEventBus);
         EnchantedMenus.MENU_TYPES.register(modEventBus);
