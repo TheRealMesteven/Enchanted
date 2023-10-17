@@ -83,7 +83,7 @@ public class EnchantedBlocks {
     }
     public static void setupPOIs() {
         try {
-            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, WICKER_BUNDLE_POI.get());
+            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, WITCH_OVEN_POI.get());
         } catch (InvocationTargetException | IllegalAccessException exception) {
             exception.printStackTrace();
         }
@@ -147,7 +147,7 @@ public class EnchantedBlocks {
     public static final RegistryObject<Block> PROTECTION_BARRIER = BLOCKS.register("protection_barrier", () -> new ProtectionBarrierBlock(Properties.copy(Blocks.BARRIER)));
     public static final RegistryObject<Block> PROTECTION_BARRIER_TEMPORARY = BLOCKS.register("protection_barrier_temporary", () -> new TemporaryProtectionBarrierBlock(Properties.copy(Blocks.BARRIER)));
 
-    public static final RegistryObject<PoiType> WICKER_BUNDLE_POI = POI_TYPES.register("wicker_bundle_poi", () -> new PoiType("wicker_bundle_poi", PoiType.getBlockStates(EnchantedBlocks.WICKER_BUNDLE.get()), 1, 1));
+    public static final RegistryObject<PoiType> WITCH_OVEN_POI = POI_TYPES.register("witch_oven_poi", () -> new PoiType("witch_oven_poi", PoiType.getBlockStates(EnchantedBlocks.WITCH_OVEN.get()), 1, 1));
     //public static final RegistryObject<Block> DEMON_HEART = BLOCKS.register("demon_heart", DemonHeart::new);
 
     //-------------------------------------------------------- UTILITY FUNCTIONS FOR CREATING BLOCKS --------------------------------------------------------

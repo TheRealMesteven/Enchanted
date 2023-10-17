@@ -72,15 +72,15 @@ public class VillageAdditions {
 
         addBuildingToPool(templatePoolRegistry, processorListRegistry,
                 new ResourceLocation("minecraft:village/plains/houses"),
-                "enchanted:enchanted.plains.apothecarys", 50);
+                "enchanted:enchanted.plains.apothecarys", 15);
 
         addBuildingToPool(templatePoolRegistry, processorListRegistry,
                 new ResourceLocation("minecraft:village/desert/houses"),
-                "enchanted:enchanted.desert.apothecarys", 50);
+                "enchanted:enchanted.desert.apothecarys", 15);
 
         addBuildingToPool(templatePoolRegistry, processorListRegistry,
                 new ResourceLocation("minecraft:village/savanna/houses"),
-                "enchanted:enchanted.savanna.apothecarys", 50);
+                "enchanted:enchanted.savanna.apothecarys", 15);
 
         //addBuildingToPool(templatePoolRegistry, processorListRegistry,
         //        new ResourceLocation("minecraft:village/snowy/houses"),

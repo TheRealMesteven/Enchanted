@@ -36,7 +36,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static com.favouriteless.enchanted.common.init.registry.EnchantedBlocks.WICKER_BUNDLE_POI;
+import static com.favouriteless.enchanted.common.init.registry.EnchantedBlocks.WITCH_OVEN_POI;
 
 public class EnchantedEntityTypes {
 
@@ -58,5 +58,5 @@ public class EnchantedEntityTypes {
     public static final RegistryObject<EntityType<FamiliarCat>> FAMILIAR_CAT = ENTITY_TYPES.register("familiar_cat", () -> Builder.of(FamiliarCat::new, MobCategory.CREATURE)
             .sized(0.6F, 0.7F).clientTrackingRange(8).build(Enchanted.location("familiar_cat").toString()));
 
-    public static final RegistryObject<VillagerProfession> APOTHECARY = VILLAGER_PROFESSIONS.register("apothecary", () -> new VillagerProfession("apothecary", WICKER_BUNDLE_POI.get(),  ImmutableSet.of(), ImmutableSet.of(), SoundEvents.CROP_PLANTED));
+    public static final RegistryObject<VillagerProfession> APOTHECARY = VILLAGER_PROFESSIONS.register("apothecary", () -> new VillagerProfession("apothecary", WITCH_OVEN_POI.get(),  ImmutableSet.of(), ImmutableSet.of(), SoundEvents.CROP_PLANTED));
 }
